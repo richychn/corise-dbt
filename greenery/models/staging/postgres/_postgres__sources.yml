@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+
+  - name: postgres
+    schema: public # this is the schema our raw data lives in
+    database: raw # this is the name of our database
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+      - name: users 
+        loaded_at_field: created_at
+        description: >
+          Contains contact and name information about each user
+      - name: addresses 
+        description: >
+          Contains residential address information
+      - name: orders 
+        loaded_at_field: created_at
+        description: >
+          Contains information about each order that is created
+      - name: events 
+        loaded_at_field: created_at
+        description: >
+          Contains information onsite events
+      - name: order_items 
+        description: >
+          Contains information about the product in each order
+      - name: products 
+        description: >
+          Contains pricing and availability information about each product
+      - name: promos 
+        loaded_at_field: created_at
+        description: >
+          Contains discount information about each promo
