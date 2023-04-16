@@ -16,5 +16,5 @@ SELECT
     skin_color,
     alignment,
     NULLIF(weight, -99) AS weight_lbs,
-    {{ lbs_to_kgs('weight') }} AS weight_kg
+    {{ lbs_to_kgs('weight') }} AS weight_kgs
 FROM {{ source('tutorial', 'superheroes') }}

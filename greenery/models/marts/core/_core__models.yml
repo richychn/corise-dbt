@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: fact_orders
+    description: >
+      Contains order and order size information
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: promo_id
+      - name: user_id
+      - name: address_id
+      - name: created_at
+      - name: order_cost
+      - name: shipping_cost
+      - name: order_total
+      - name: tracking_id
+      - name: shipping_service
+      - name: estimated_delivery_at
+      - name: delivered_at
+      - name: status
+      - name: has_promo
+      - name: num_products
+      - name: num_items
+  - name: fact_user_sessions
+    description: >
+      Contains all on site activity for each user session
+    columns:
+      - name: user_session_id
+      - name: user_id
+      - name: session_id
+      - name: created_at
+      - name: page_views
+      - name: add_to_carts
+      - name: checkouts
+      - name: packages_shipped
+      - name: pages_visited
+      - name: has_page_view
+      - name: has_atc
+      - name: has_checkout
+      - name: has_package_shipped

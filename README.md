@@ -28,3 +28,46 @@ GPL-3.0
 5. On average, how many unique sessions do we have per hour?
 
 10.1 sessions per hour
+
+# Week 2 Questions
+
+1. What is our user repeat rate?
+
+79.8%
+
+    with counts as (
+        SELECT 
+            user_id,
+            count(distinct order_id) as orders
+        FROM orders
+        GROUP BY 1
+    ),
+
+    repeat_user as (
+        SELECT
+            CASE WHEN orders > 1 THEN 1
+            WHEN orders = 1 THEN 0
+            END AS repeat_user,
+            user_id
+        FROM counts
+    )
+
+    SELECT
+        sum(repeat_user) / count(user_id)
+    FROM repeat_user
+
+2. What are good indicators of a user who will likely purchase again? What about indicators of users who are likely NOT to purchase again? If you had more data, what features would you want to look into to answer this question?
+
+I would look into repeat purchase patterns by product and by size of first order. 
+
+If I had more data, I might want to know some demographic information, such as age and gender. 
+
+3. Explain the product mart models you added. Why did you organize the models in the way you did?
+
+I created a fact_product_summary model for the product mart. This model allows users to get time series and snapshots of all events related to a product, so the user can track conversion performance related to the product.
+
+I also created two other core models (fact_user_session and fact_orders) that allow users to look at user level conversion performance and order sizes.
+
+4. Use the dbt docs to visualize your model DAGs to ensure the model layers make sense.
+
+![Week 2 DAG](/week 2 dag.png)

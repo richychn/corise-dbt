@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: fact_product_summary
+    description: >
+      Contains daily conversion information for each product
+    columns:
+      - name: created_on
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+      - name: product
+        tests:
+          - not_null
+      - name: product_quantity
+      - name: orders
+      - name: page_views
+      - name: add_to_carts
