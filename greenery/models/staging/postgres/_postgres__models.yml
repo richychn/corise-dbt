@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: users 
+  - name: stg_users 
     description: >
       Contains contact and name information about each user
     columns:
@@ -16,7 +16,7 @@ models:
       - name: created_at
       - name: updated_at
       - name: address_id
-  - name: addresses 
+  - name: stg_addresses 
     description: >
       Contains residential address information
     columns:
@@ -24,7 +24,7 @@ models:
       - name: zipcode
       - name: state
       - name: country
-  - name: orders 
+  - name: stg_orders 
     description: >
       Contains information about each order that is created
     columns:
@@ -41,7 +41,7 @@ models:
       - name: estimated_delivery_at
       - name: delivered_at
       - name: status
-  - name: events 
+  - name: stg_events 
     description: >
       Contains information onsite events
     columns:
@@ -53,14 +53,14 @@ models:
       - name: created_at
       - name: order_id
       - name: product_id
-  - name: order_items 
+  - name: stg_order_items 
     description: >
       Contains information about the product in each order
     columns: 
       - name: order_id
       - name: product_id
       - name: quantity
-  - name: products 
+  - name: stg_products 
     description: >
       Contains pricing and availability information about each product
     columns:
@@ -68,7 +68,7 @@ models:
       - name: name
       - name: price
       - name: inventory
-  - name: promos 
+  - name: stg_promos 
     description: >
       Contains discount information about each promo
     columns:
