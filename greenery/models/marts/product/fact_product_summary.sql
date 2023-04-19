@@ -27,6 +27,7 @@ events as (
 
 join_events_to_order_items as (
     SELECT
+        CONCAT(oi.created_on, oi.product_id) as product_summary_id,
         oi.*,
         e.page_views,
         e.add_to_carts

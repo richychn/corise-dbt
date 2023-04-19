@@ -10,47 +10,97 @@ models:
           - not_null
           - unique
       - name: first_name
+        tests:
+          - not_null
       - name: last_name
+        tests:
+          - not_null
       - name: email
+        tests:
+          - not_null
+          - unique
       - name: phone_number
+        tests:
+          - not_null
       - name: created_at
+        tests:
+          - not_null
       - name: updated_at
+        tests:
+          - not_null
       - name: address_id
+        tests:
+          - not_null
   - name: stg_addresses 
     description: >
       Contains residential address information
     columns:
       - name: address_id
+        tests:
+          - not_null
+          - unique
       - name: zipcode
+        tests:
+          - not_null
       - name: state
+        tests:
+          - not_null
       - name: country
+        tests:
+          - not_null
   - name: stg_orders 
     description: >
       Contains information about each order that is created
     columns:
       - name: order_id
+        tests:
+          - not_null
+          - unique
       - name: promo_id
       - name: user_id
+        tests:
+          - not_null
       - name: address_id
+        tests:
+          - not_null
       - name: created_at
+        tests:
+          - not_null
       - name: order_cost
+        tests:
+          - not_null
+          - positive_values
       - name: shipping_cost
       - name: order_total
+        tests:
+          - not_null
+          - positive_values
       - name: tracking_id
       - name: shipping_service
       - name: estimated_delivery_at
       - name: delivered_at
       - name: status
+        tests:
+          - not_null
   - name: stg_events 
     description: >
       Contains information onsite events
     columns:
       - name: event_id
+        tests:
+          - not_null
+          - unique
       - name: session_id
+        tests:
+          - not_null
       - name: user_id
       - name: event_type
+        tests:
+          - not_null
       - name: page_url
       - name: created_at
+        tests:
+          - not_null
       - name: order_id
       - name: product_id
   - name: stg_order_items 
@@ -58,20 +108,44 @@ models:
       Contains information about the product in each order
     columns: 
       - name: order_id
+        tests:
+          - not_null
       - name: product_id
+        tests:
+          - not_null
       - name: quantity
+        tests:
+          - not_null
+          - positive_values
   - name: stg_products 
     description: >
       Contains pricing and availability information about each product
     columns:
       - name: product_id
+        tests:
+          - not_null
+          - unique
       - name: name
+        tests:
+          - not_null
       - name: price
+        tests:
+          - not_null
+          - positive_values
       - name: inventory
+        tests:
+          - not_null
   - name: stg_promos 
     description: >
       Contains discount information about each promo
     columns:
       - name: promo_id
+        tests:
+          - not_null
+          - unique
       - name: discount
+        tests:
+          - not_null
       - name: status
+        tests:
+          - not_null

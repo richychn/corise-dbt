@@ -11,33 +11,80 @@ models:
           - unique
       - name: promo_id
       - name: user_id
+        tests:
+          - not_null
       - name: address_id
+        tests:
+          - not_null
       - name: created_at
+        tests:
+          - not_null
       - name: order_cost
+        tests:
+          - not_null
+          - positive_values
       - name: shipping_cost
       - name: order_total
+        tests:
+          - not_null
+          - positive_values
       - name: tracking_id
       - name: shipping_service
       - name: estimated_delivery_at
       - name: delivered_at
       - name: status
+        tests:
+          - not_null
       - name: has_promo
+        tests:
+          - not_null
       - name: num_products
+        tests:
+          - not_null
       - name: num_items
+        tests:
+          - not_null
   - name: fact_user_sessions
     description: >
       Contains all on site activity for each user session
     columns:
       - name: user_session_id
+        tests:
+          - not_null
+          - unique
       - name: user_id
+        tests:
+          - not_null
       - name: session_id
+        tests:
+          - not_null
       - name: created_at
+        tests:
+          - not_null
       - name: page_views
+        tests:
+          - not_null
       - name: add_to_carts
+        tests:
+          - not_null
       - name: checkouts
+        tests:
+          - not_null
       - name: packages_shipped
+        tests:
+          - not_null
       - name: pages_visited
+        tests:
+          - not_null
       - name: has_page_view
+        tests:
+          - not_null
       - name: has_atc
+        tests:
+          - not_null
       - name: has_checkout
+        tests:
+          - not_null
       - name: has_package_shipped
+        tests:
+          - not_null

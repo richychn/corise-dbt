@@ -5,6 +5,10 @@ models:
     description: >
       Contains daily conversion information for each product
     columns:
+      - name: product_summary_id
+        tests:
+          - not_null
+          - unique
       - name: created_on
         tests:
           - not_null
