@@ -77,3 +77,9 @@ I also created two other core models (fact_user_session and fact_orders) that al
 I would set up a daily DAG to build the tables and immediately run tests after each table is built. If the tests are not passing, I would check the seriousness of the issue (whether it affects business processes) and decide whether to allow further tables to be built. I would then either fix the issue right there or create a ticket to fix it later. Regardless of the decision, I would notify stakeholders.
 
 Regarding freshness of data, unless it would affect business processes seriously, I would also warn stakeholders and create a ticket to followup with where the data is coming from. If it is serious, I would put a hold on the tables being built and decide on a fix first. 
+
+6. Which products had their inventory change from week 1 to week 2? 
+- Monstera
+- Philodendron
+- Pothos
+- String of pearls
