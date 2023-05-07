@@ -79,6 +79,7 @@ I would set up a daily DAG to build the tables and immediately run tests after e
 Regarding freshness of data, unless it would affect business processes seriously, I would also warn stakeholders and create a ticket to followup with where the data is coming from. If it is serious, I would put a hold on the tables being built and decide on a fix first. 
 
 6. Which products had their inventory change from week 1 to week 2? 
+
 - Monstera
 - Philodendron
 - Pothos
@@ -87,9 +88,11 @@ Regarding freshness of data, unless it would affect business processes seriously
 # Week 3 Questions
 ## Part 1
 1. What is our overall conversion rate?
+
 Our overall conversion rate is 62.5%
 
 2. What is our conversion rate by product?
+
 NAME	CONV
 String of pearls	0.609375
 Arrow Head	0.555556
@@ -172,6 +175,7 @@ String of pearls
 Pothos and String of pearls went out of stock in the last 3 weeks.
 
 ## Part 2 Modeling Challenge
+
     SELECT
         sum(has_page_view::int) as page_views,
         sum(has_atc::int) as adds_to_cart,
@@ -181,9 +185,11 @@ Pothos and String of pearls went out of stock in the last 3 weeks.
     FROM fact_user_sessions;
 
 1. How are our users moving through the product funnel?
+
 578 users start with a page view. Only 467 get to an add to cart, and 361 get to a checkout.
 
 2. Which steps in the funnel have largest drop off points?
+
 The largest drop off point is between add to cart and checkout.
 
 ## Part 3 Reflection
