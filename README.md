@@ -153,6 +153,7 @@ ZZ Plant
 # Week 4 Questions
 ## Part 1: Snapshot
 1. Which products had their inventory change from week 3 to week 4? 
+
 Philodendron
 String of pearls
 Pothos
