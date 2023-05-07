@@ -83,3 +83,110 @@ Regarding freshness of data, unless it would affect business processes seriously
 - Philodendron
 - Pothos
 - String of pearls
+
+# Week 3 Questions
+## Part 1
+1. What is our overall conversion rate?
+Our overall conversion rate is 62.5%
+
+2. What is our conversion rate by product?
+NAME	CONV
+String of pearls	0.609375
+Arrow Head	0.555556
+Cactus	0.545455
+ZZ Plant	0.539683
+Bamboo	0.537313
+Rubber Plant	0.518519
+Monstera	0.510204
+Calathea Makoyana	0.509434
+Fiddle Leaf Fig	0.5
+Majesty Palm	0.492537
+Aloe Vera	0.492308
+Devil's Ivy	0.488889
+Philodendron	0.483871
+Jade Plant	0.478261
+Spider Plant	0.474576
+Pilea Peperomioides	0.474576
+Dragon Tree	0.467742
+Money Tree	0.464286
+Orchid	0.453333
+Bird of Paradise	0.45
+Ficus	0.426471
+Birds Nest Fern	0.423077
+Pink Anthurium	0.418919
+Boston Fern	0.412698
+Alocasia Polly	0.411765
+Peace Lily	0.409091
+Ponytail Palm	0.4
+Snake Plant	0.39726
+Angel Wings Begonia	0.393443
+Pothos	0.344262
+
+Hypothesis: the higher conversion items might die faster.
+
+## Part 2: Create a Macro
+
+I created a macro called sum_events, which helps sum up a events of a certain type.
+
+## Part 3: Post hook
+
+Granted access to reporting role in the dbt_project.yml
+
+## Part 4: dbt package
+
+I am using dbt_utils and dbt_expectations. In dbt_utils, I am using the group_by macro. In dbt_expectations, I am using expect_column_values_to_be_in_set to test for the allowed values in a column.
+
+## Part 5: dbt docs and DAG
+
+## Part 6: Snapshot
+
+These products changed:
+Bamboo
+String of pearls
+Monstera
+Pothos
+Philodendron
+ZZ Plant
+
+# Week 4 Questions
+## Part 1: Snapshot
+1. Which products had their inventory change from week 3 to week 4? 
+Philodendron
+String of pearls
+Pothos
+Bamboo
+ZZ Plant
+Monstera
+
+2. Now that we have 3 weeks of snapshot data, can you use the inventory changes to determine which products had the most fluctuations in inventory? Did we have any items go out of stock in the last 3 weeks?
+
+These products had the most fluctuations, changing 3 times in the last 3 weeks:
+Philodendron
+Monstera
+Pothos
+String of pearls 
+
+Pothos and String of pearls went out of stock in the last 3 weeks.
+
+## Part 2 Modeling Challenge
+    SELECT
+        sum(has_page_view::int) as page_views,
+        sum(has_atc::int) as adds_to_cart,
+        sum(has_checkout::int) as checkouts,
+        sum(has_atc::int) / sum(has_page_view::int) as atc_rate,
+        sum(has_checkout::int) / sum(has_atc::int) as checkout_rate
+    FROM fact_user_sessions;
+
+1. How are our users moving through the product funnel?
+578 users start with a page view. Only 467 get to an add to cart, and 361 get to a checkout.
+
+2. Which steps in the funnel have largest drop off points?
+The largest drop off point is between add to cart and checkout.
+
+## Part 3 Reflection
+
+3A. if your organization is using dbt, what are 1-2 things you might do differently / recommend to your organization based on learning from this course?
+
+Our organization does not strictly follow the Kimball dimensional modeling method. Although there are complications to using that method in our business, it could help make models clearer to first time analysts. Coincidentally, we acquired a company after I started this course that does follow the Kimball dimensional modeling method, but does not use dbt. This course helped me understand what was going on in their data warehouse. 
+
+Our organization uses most of the other coursework already, which was fun to learn properly about, since I had a little exposure already. 

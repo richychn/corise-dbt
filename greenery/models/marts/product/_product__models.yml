@@ -1,24 +1,22 @@
 version: 2
 
 models:
-  - name: fact_product_summary
+  - name: fact_product_events
     description: >
-      Contains daily conversion information for each product
+      Contains product page views and orders
     columns:
-      - name: product_summary_id
+      - name: product_event_id
         tests:
           - not_null
           - unique
-      - name: created_on
-        tests:
-          - not_null
+      - name: user_id
       - name: product_id
+      - name: event_type
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_in_set:
+              value_set: ['order', 'page_view']
       - name: product
-        tests:
-          - not_null
-      - name: product_quantity
-      - name: orders
-      - name: page_views
-      - name: add_to_carts
+  - name: dim_products
+    description: >
+      Contains price and inventory for each product

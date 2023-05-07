@@ -1,0 +1,12 @@
+version: 2
+
+macros:
+  - name: sum_events
+    description: Sums all events with event type provided
+    docs:
+      show: true
+    arguments:
+      - name: event_type
+        type: string
+        description: >
+          Event type of either page_view, add_to_cart, checkout, package_shipped

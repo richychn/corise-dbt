@@ -1,6 +1,9 @@
 version: 2
 
 models:
+  - name: dim_users
+    description: >
+      Contains name, contact, address, and sign up time about a user
   - name: fact_orders
     description: >
       Contains order and order size information
