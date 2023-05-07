@@ -70,7 +70,7 @@ I also created two other core models (fact_user_session and fact_orders) that al
 
 4. Use the dbt docs to visualize your model DAGs to ensure the model layers make sense.
 
-![Week 2 DAG](/week 2 dag.png)
+![Week 2 DAG](https://github.com/richychn/corise-dbt/blob/b9e96c9d1f99f50150a70d2ef7fbcc2813379f02/week%202%20dag.png)
 
 5. Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
 
@@ -137,6 +137,8 @@ Granted access to reporting role in the dbt_project.yml
 I am using dbt_utils and dbt_expectations. In dbt_utils, I am using the group_by macro. In dbt_expectations, I am using expect_column_values_to_be_in_set to test for the allowed values in a column.
 
 ## Part 5: dbt docs and DAG
+
+![week 3 dag](https://github.com/richychn/corise-dbt/blob/b9e96c9d1f99f50150a70d2ef7fbcc2813379f02/Screenshot%202023-05-07%20at%204.03.11%20PM.png)
 
 ## Part 6: Snapshot
 
