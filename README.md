@@ -221,7 +221,7 @@ Pothos and String of pearls went out of stock in the last 3 weeks.
 
 2. Which steps in the funnel have largest drop off points?
 
-The largest drop off point is between add to cart and checkout.
+The largest drop off point is between add to cart and checkout. 81% of sessions with page view move on to add to cart, while only 77% of sessions with add to cart move on to checkout.
 
 ## Part 3 Reflection
 
